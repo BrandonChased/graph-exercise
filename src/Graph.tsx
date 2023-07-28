@@ -3,6 +3,8 @@ import BarGraph from "./components/BarGraph";
 import LineGraph from "./components/LineGraph";
 import PieGraph from "./components/PieGraph";
 import ScatterGraph from "./components/ScatterGraph";
+import DisableGraphs from "./components/DisableGraphs";
+import SelectShownGraph from "./components/SelectShownGraph";
 
 
 type GraphProps = {
@@ -11,21 +13,27 @@ type GraphProps = {
 
 export function Graph({ exampleData }: GraphProps) {
 
-  const [selectedGraph, setSelectedGraph] = useState("Line");
+  const [selectedGraph, setSelectedGraph] = useState("Bar");
 
-  const changeGraph = (graphType: string) => {
-    setSelectedGraph(graphType)
-  }
+  const [barChecked, setBarChecked] = useState(false);
+  const [lineChecked, setLineChecked] = useState(false);
+  const [pieChecked, setPieChecked] = useState(false);
+  const [scatterChecked, setScatterChecked] = useState(false);
 
   return (
-    <div>
-      <ul className="mt-5">
-        <button className="btn btn-info mx-2" onClick={() => changeGraph("Bar")}>Bar Graph</button>
-        <button className="btn btn-info mx-2" onClick={() => changeGraph("Line")}>Line Graph</button>
-        <button className="btn btn-info mx-2" onClick={() => changeGraph("Pie")}>Pie Chart</button>
-        <button className="btn btn-info mx-2" onClick={() => changeGraph("Scatter")}>Scatterplot Graph</button>
-      </ul>
-      <div className="graphs container">
+    <div className="p-5">
+      <DisableGraphs
+        barChecked={barChecked}
+        lineChecked={lineChecked}
+        pieChecked={pieChecked}
+        scatterChecked={scatterChecked}
+        setBarChecked={setBarChecked}
+        setLineChecked={setLineChecked}
+        setPieChecked={setPieChecked}
+        setScatterChecked={setScatterChecked}
+      />
+      <div className="graphs">
+        <p className="display-1">Overview</p>
         {selectedGraph == "Bar" &&
           <div>
             <BarGraph data={exampleData}>
@@ -51,6 +59,17 @@ export function Graph({ exampleData }: GraphProps) {
           </div>
         }
       </div>
+      <SelectShownGraph
+        setBarChecked={setBarChecked}
+        setLineChecked={setLineChecked}
+        setPieChecked={setPieChecked}
+        setScatterChecked={setScatterChecked}
+        setSelectedGraph={setSelectedGraph}         
+        barChecked={barChecked}
+        lineChecked={lineChecked}
+        pieChecked={pieChecked}
+        scatterChecked={scatterChecked}
+      />
     </div>
   );
 };
