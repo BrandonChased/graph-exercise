@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import BarGraph from "./components/BarGraph";
-import LineGraph from "./components/LineGraph";
-import PieGraph from "./components/PieGraph";
-import ScatterGraph from "./components/ScatterGraph";
 import DisableGraphs from "./components/DisableGraphs";
 import SelectShownGraph from "./components/SelectShownGraph";
-
+import ChosenGraph from "./components/Graph";
 
 type GraphProps = {
   exampleData: any[]
@@ -32,33 +28,9 @@ export function Graph({ exampleData }: GraphProps) {
         setPieChecked={setPieChecked}
         setScatterChecked={setScatterChecked}
       />
-      <div className="graphs">
-        <p className="display-1">Overview</p>
-        {selectedGraph == "Bar" &&
-          <div>
-            <BarGraph data={exampleData}>
-            </BarGraph>
-          </div>
-        }
-        {selectedGraph == "Line" &&
-          <div>
-            <LineGraph data={exampleData}>
-            </LineGraph>
-          </div>
-        }
-        {selectedGraph == "Pie" &&
-          <div>
-            <PieGraph data={exampleData}>
-            </PieGraph>
-          </div>
-        }
-        {selectedGraph == "Scatter" &&
-          <div>
-            <ScatterGraph data={exampleData}>
-            </ScatterGraph>
-          </div>
-        }
-      </div>
+      <ChosenGraph 
+        selectedGraph={selectedGraph}
+      />
       <SelectShownGraph
         setBarChecked={setBarChecked}
         setLineChecked={setLineChecked}

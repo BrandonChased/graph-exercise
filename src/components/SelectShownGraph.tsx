@@ -1,42 +1,43 @@
-import React from 'react'
+import React from 'react';
+import "../css/GraphSelectPanel.css";
 
 function SelectShownGraph(props: any) {
     return (
-        <div className="mt-5">
+        <div className="graph-select-panel">
             {!props.barChecked && (
-                <button
-                    className="btn btn-info"
+                <div
+                    className="options-tab"
                     onClick={() => props.setSelectedGraph("Bar")}
                 >
                     Bar Graph
-                </button>
+                </div>
             )}
             {!props.lineChecked && (
-                <button
-                    className="btn btn-info"
+                <div
+                    className="options-tab"
                     onClick={() => props.setSelectedGraph("Line")}
                 >
                     Line Graph
-                </button>
+                </div>
             )}
             {!props.pieChecked && (
-                <button
-                    className="btn btn-info"
+                <div
+                    className="options-tab"
                     onClick={() => props.setSelectedGraph("Pie")}
                 >
                     Pie Chart
-                </button>
+                </div>
             )}
             {!props.scatterChecked && (
-                <button
-                    className="btn btn-info"
+                <div
+                    className="options-tab"
                     onClick={() => props.setSelectedGraph("Scatter")}
                 >
                     Scatterplot Graph
-                </button>
+                </div>
             )}
         </div>
-    )
+    );
 }
 
-export default SelectShownGraph
+export default SelectShownGraph;

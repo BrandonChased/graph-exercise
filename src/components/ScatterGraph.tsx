@@ -74,7 +74,7 @@ const ScatterGraph: React.FC<Props> = ({ data }) => {
   return (
     <div>
       <h2>Scatter Graph</h2>
-      <Scatter data={chartData} />
+      <Scatter height={50} data={chartData} />
     </div>
   );
 };

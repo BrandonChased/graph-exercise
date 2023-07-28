@@ -43,13 +43,14 @@ const LineGraph: React.FC<Props> = ({ data }) => {
     return alteredData;
   };
 
-  // Format the data for the Line chart
+  // Formatting the data 
   const formattedData = handleDuplicateColumns(data);
 
   return (
     <div>
       <h2>Line Graph</h2>
       <Line
+        height={50}
         data={{
           labels: formattedData.map((item) => item.label),
           datasets: [

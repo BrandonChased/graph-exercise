@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 type DataItem = {
@@ -54,14 +54,14 @@ const BarGraph: React.FC<Props> = ({ data }) => {
         return alteredData;
     };
 
-    // Format the data for the Bar chart
+    // Formatting the data 
     const formattedData = handleDuplicateColumns(data);
-
 
     return (
         <div>
             <h2>Bar Graph</h2>
-            <Bar
+            <Bar 
+                height={50}
                 data={{
                     labels: formattedData.map((item) => item.label),
                     datasets: [
@@ -72,7 +72,7 @@ const BarGraph: React.FC<Props> = ({ data }) => {
                         },
                     ],
                 }}
-                
+
             />
         </div>
     );

@@ -1,13 +1,14 @@
 import React from 'react';
-import "../css/disabledGraphs.css";
+import "../css/DisabledGraphs.css";
 
 function DisableGraphs(props: any) {
     return (
         <div className='disabled-graphs'>
             <div>
-                <h2>Admin Panel</h2>
+                <h2 className='disable-header'>Admin Panel</h2>
                 <ul className="disable-inputs">
-                    <div className="disable-input" onClick={() => props.setBarChecked(!props.barChecked)}> 
+                    <h2 className='disabled-graphs-title'>Disable Graphs</h2>
+                    <div className="disable-input" onClick={() => props.setBarChecked(!props.barChecked)}>
                         <label htmlFor="bar" className='disable-label'>Bar</label>
                         <input
                             type="checkbox"

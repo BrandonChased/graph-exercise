@@ -1,0 +1,9 @@
+.root {
+  max-height: 100vh;
+}
+
+@media (max-width: 1200px) {
+  .graphs {
+      margin-bottom: 4rem;
+  }
+}

@@ -54,7 +54,7 @@ const PieGraph: React.FC<Props> = ({ data }) => {
         return alteredData;
     };
 
-    // Format the data for the Pie chart
+  // Formatting the data 
     const formattedData = handleDuplicateColumns(data);
 
 
@@ -62,6 +62,7 @@ const PieGraph: React.FC<Props> = ({ data }) => {
         <div>
             <h2>Pie Graph</h2>
             <Pie
+                height={50}
                 data={{
                     labels: formattedData.map((item) => item.label),
                     datasets: [
